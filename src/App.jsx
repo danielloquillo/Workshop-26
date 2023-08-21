@@ -1,33 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Button } from '@chakra-ui/react'
+import ContactList from './components/ContactList'
+import SelectedContact from './components/SelectedContact'
+import useContacts from './hooks/useContacts'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [selectedId, setSelectedId] = useState(null)
+  const {contacts} = useContacts()
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {selectedId ? <SelectedContact selectedId={selectedId}/> : 
+        <ContactList contacts={contacts} setSelectedId={setSelectedId}/>}
+      {selectedId && <Button marginY={10} onClick={()=>setSelectedId(null)}>All Contacts</Button>}
     </>
   )
 }

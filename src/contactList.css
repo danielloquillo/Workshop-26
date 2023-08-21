@@ -1,0 +1,16 @@
+.css-4g6ai3 {
+    box-shadow: inset 0 0 0 0 #3498db; 
+    color: #6c757d; 
+    margin: 0;
+    padding: 0.5rem 1rem; 
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    border: none; 
+    border-radius: 8px;
+  }
+  
+  .css-4g6ai3:hover {
+    box-shadow: inset 0px 6px 0px 0px #66a3d2; 
+    color: #ffffff; 
+    transform: translateY(-3px); 
+  }
+  
